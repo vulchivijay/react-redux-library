@@ -5,7 +5,7 @@ import Products from './components/Shop/Products';
 
 import { useSelector, useDispatch } from 'react-redux';
 import Notification from './components/UI/Notifications';
-import { sendCartData } from './store/CartActions';
+import { getCartData, sendCartData } from './store/CartActions';
 
 let isInitial = true;
 
@@ -20,7 +20,12 @@ function App() {
       isInitial = false;
       return;
     }
-    dispatch(sendCartData(cart));
+    if (cart.totalAmount === 0 && cart.totalQuantity === 0) {
+      dispatch(getCartData());
+    }
+    else {
+      dispatch(sendCartData(cart));
+    }
   }, [cart, dispatch]);
 
   return (

@@ -2,9 +2,21 @@ import Card from '../UI/Card';
 import classes from './Cart.module.css';
 import CartItem from './CartItem';
 
+import { useDispatch } from 'react-redux';
+import { sendCartData } from '../../store/CartActions';
+
 const Cart = (props) => {
+  const dispatch = useDispatch();
   const items = props.cart.items;
   const totalAmount = props.cart.totalAmount;
+
+  const handleCheckout = () => {
+    dispatch(sendCartData({
+      items: [],
+      totalQuantity: 0,
+      totalAmount: 0,
+    }));
+  }
 
   return (
     <Card className={classes.cart}>
@@ -26,6 +38,9 @@ const Cart = (props) => {
           />
         ))}
       </ul>
+      <div className="flex justify-end">
+        <button onClick={handleCheckout}>Check out</button>
+      </div>
     </Card>
   );
 };

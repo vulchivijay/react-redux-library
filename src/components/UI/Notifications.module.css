@@ -1,6 +1,9 @@
 .notification {
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  height: 3rem;
+  height: 2rem;
   background-color: #1a8ed1;
   display: flex;
   justify-content: space-between;
