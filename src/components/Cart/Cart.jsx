@@ -2,20 +2,15 @@ import Card from '../UI/Card';
 import classes from './Cart.module.css';
 import CartItem from './CartItem';
 
-import { useSelector } from 'react-redux';
-
 const Cart = (props) => {
-  const items = useSelector(state => state.Cart.items);
-  let total = 0;
-  const totalAmount = items.map(state => {
-    total += state.totalPrice;
-  });
+  const items = props.cart.items;
+  const totalAmount = props.cart.totalAmount;
 
   return (
     <Card className={classes.cart}>
       <h2 className="flex justify-between">
         <span>Your Shopping Cart</span>
-        <b>Total: ${total.toFixed(2)}</b>
+        <b>Total: $ {totalAmount}</b>
       </h2>
       <ul>
         {items.map(item => (
