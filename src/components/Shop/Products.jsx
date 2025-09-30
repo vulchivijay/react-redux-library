@@ -5,17 +5,17 @@ const Dummy_Products = [
   {
     id: "p1",
     price: 6,
-    name: 'First Book'
+    name: 'First Book',
   },
   {
     id: "p2",
     price: 12,
-    name: 'Second Book'
+    name: 'Second Book',
   },
   {
     id: "p3",
     price: 18,
-    name: 'Third Book'
+    name: 'Third Book',
   }
 ]
 
